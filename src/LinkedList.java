@@ -23,11 +23,10 @@ public class LinkedList {
 		}
 		int isFound1 = myLinked.find(45);
 		if( isFound1 == 0) {
-			System.out.println(45 + " is found!!");
-		} else {
+		
 			System.out.println(45 + " isn't found!!");
 		}
-		myLinked = myLinked.remove(1, myLinked);
+		myLinked = myLinked.remove(3);
 		
 		System.out.println("current state (after deletion): " + myLinked.val + " -> " 
 		+ myLinked.next.val + " -> " + myLinked.next.next.val + " -> " + myLinked.next.next.next.val);
@@ -44,18 +43,16 @@ public class LinkedList {
 		}
 		
 	}
-	public LinkedList remove(int value, LinkedList past) {
+	public LinkedList remove(int value) {
 		if(value == val) {
 			if( next == null) {
 				return null;
 			}
-			
-			
 			return next;
 		}
 		else {
 			
-			next = next.remove(value, this);
+			next = next.remove(value);
 			return this;
 		}
 		
