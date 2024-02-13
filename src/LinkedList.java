@@ -7,24 +7,31 @@ public class LinkedList {
 		next = null;
 	}
 	public static void main(String args[]) {
-		LinkedList myLinked = new LinkedList(5);
+		LinkedList myLinked = new LinkedList(1);
 		System.out.println(myLinked.val);
-		myLinked.add(8);
-		myLinked.add(91);
-		myLinked.add(44);
-		System.out.println(myLinked.next.val+ " and " + myLinked.next.next.val + " add into next");
-		int isFound = myLinked.find(15);
+		myLinked.add(2);
+		myLinked.add(3);
+		myLinked.add(4);
+		myLinked.add(5);
+		System.out.println(myLinked.val + " -> " + myLinked.next.val+ " -> "
+		+ myLinked.next.next.val + " -> " + myLinked.next.next.next.val + "... add into next");
+		int isFound = myLinked.find(2);
 		if( isFound != 0) {
-			System.out.println(15 + " is found!!");
+			System.out.println(2 + " is found!!");
 		} else {
-			System.out.println(15 + " isn't found!!");
+			System.out.println(2 + " isn't found!!");
 		}
-		int isFound1 = myLinked.find(91);
-		if( isFound1 != 0) {
-			System.out.println(91 + " is found!!");
+		int isFound1 = myLinked.find(45);
+		if( isFound1 == 0) {
+			System.out.println(45 + " is found!!");
 		} else {
-			System.out.println(91 + " isn't found!!");
+			System.out.println(45 + " isn't found!!");
 		}
+		myLinked = myLinked.remove(1, myLinked);
+		
+		System.out.println("current state (after deletion): " + myLinked.val + " -> " 
+		+ myLinked.next.val + " -> " + myLinked.next.next.val + " -> " + myLinked.next.next.next.val);
+		
 		
 	}
 	public int add(int value) {
@@ -34,6 +41,22 @@ public class LinkedList {
 			return value;
 		} else {
 			return next.add(value);
+		}
+		
+	}
+	public LinkedList remove(int value, LinkedList past) {
+		if(value == val) {
+			if( next == null) {
+				return null;
+			}
+			
+			
+			return next;
+		}
+		else {
+			
+			next = next.remove(value, this);
+			return this;
 		}
 		
 	}
