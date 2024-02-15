@@ -24,6 +24,10 @@ public class Tree {
 		if(myTree.right.left.val == 10 && myTree.right.right.val == 30) {
 			System.out.println("second sub trees work fine!!");
 		}
+		
+		if( myTree.bianarySearch(30) == 30) {
+			System.out.println("bianary search work fine!!");
+		}
 	}
 	
 	public int add(int value){
@@ -45,6 +49,20 @@ public class Tree {
 				
 			}
 		}
+	}
+	
+	public int bianarySearch(int value) {
+		if( value == val) return val;
+		if (value > val) {
+			if( right != null) {
+				return right.add(value);
+			}else return 0;
+		} else {
+			if( left != null) {
+				return left.add(value);
+			}else return 0;
+		}
+		
 	}
 	
 
